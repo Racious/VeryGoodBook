@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>VeryGoodBook_Web</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+
+  <servlet>
+  <description>登入畫面驗證碼</description>
+    <!-- 可自取名稱 -->
+    <servlet-name>CaptchaServlet</servlet-name>
+    <!-- 需完整路徑  伺服器根據路徑建立起來 故無法建立有參數建構式-->
+      <servlet-class>uuu.vgb.view.CaptchaServlet</servlet-class>
+    <!-- 初始化參數 指定參數名稱及數值-->
+    <init-param>
+        <param-name>length</param-name>
+        <param-value>4</param-value>    
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>CaptchaServlet</servlet-name>
+    <!-- 可自行宣告網址 -->
+    <url-pattern>/images/captcha.jpg</url-pattern>
+    <url-pattern>/images/captcha.jpeg</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+  <description>註冊畫面驗證碼</description>
+    <!-- 可自取名稱 註冊用 需跟下面的名稱相同-->
+    <servlet-name>RegisterCaptchaServlet</servlet-name>
+    <!-- 需完整路徑  伺服器根據路徑建立起來 故無法建立有參數建構式 只能使用無參數建構式-->
+      <servlet-class>uuu.vgb.view.CaptchaServlet</servlet-class>
+
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterCaptchaServlet</servlet-name>
+    <!-- 可自行宣告網址 -->
+    <url-pattern>/images/register_captcha.jpg</url-pattern>
+    <url-pattern>/images/register_captcha.jpeg</url-pattern>
+    <url-pattern>/images/register_captcha.gif</url-pattern>
+  </servlet-mapping>
+
+</web-app>

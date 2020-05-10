@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>登入</title>
+    <style>
+      a {
+        text-decoration: none;
+      }
+      /* p img {
+         圖跟字對齊 
+        vertical-align: initial;
+      }
+       */
+    </style>
+    <script type="text/javascript " src="jquery.js"></script>
+    <script>
+      function refreshCaptureImage() {
+        console.log("refresh");
+        var captchaImage = document.getElementById("refreshImage");
+        // 需實際變更網址瀏覽器才會正確送出請求，故在後面加上時間
+        captchaImage.src = "images/captcha.jpg?=" + new Date();
+      }
+    </script>
+  </head>
+  <body>
+    <hr />
+    <h1><a href="/vgb/index.html">非常好書</a></h1>
+    <hr />
+    <form action="login.do" method="post">
+      <div style="min-height: 75vh;">
+        <p>
+          <label for="">帳號：</label>
+          <input
+            type="text"
+            id="account"
+            placeholder="請輸入帳號"
+            name="id"
+            required
+          />
+        </p>
+        <p>
+          <label for="">密碼：</label>
+          <input
+            type="password"
+            placeholder="請輸入密碼"
+            name="password"
+            required
+          />
+        </p>
+        <p>
+          <label for="">驗證碼：</label>
+          <input
+            type="text"
+            placeholder="請依右圖輸入驗證碼"
+            name="capture"
+            required
+            id="checkImage"
+          />
+          <!--vertical-align 圖跟字對齊  -->
+          <img
+            id="refreshImage"
+            src="images/captcha.jpg"
+            style="vertical-align: middle;"
+          />
+          <button type="button" onclick="refreshCaptureImage()">
+            更新驗證碼
+          </button>
+        </p>
+        <input type="submit" value="登入" />
+      </div>
+    </form>
+    <hr />
+    <footer style="text-align: center;">
+      非常好書&copy;版權所有 2020~
+    </footer>
+  </body>
+</html>
