@@ -1,5 +1,7 @@
 package uuu.vgb.entity;
 
+import java.util.Locale.Category;
+
 public class Product {
 
 	private int id;//PKey,auto increment
@@ -8,6 +10,15 @@ public class Product {
 	private int stock;//required
 	private String description="";//optional
 	private String photoUrl;//optional
+	private String category;
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
 
 	@Override
 	public int hashCode() {
@@ -99,7 +110,7 @@ public class Product {
 	public String toString() {
 		return this.getClass().getName()+"\nid= " + id + "\n書名= " + name +
 				"\n定價= " + unitPrice + "\n庫存= " + stock	+
-				"\n描述= " + description + "\n圖片網址= " + photoUrl ;
+				"\n描述= " + description + "\n類別= "+ category +"\n圖片網址= " + photoUrl ;
 	}
 
 }

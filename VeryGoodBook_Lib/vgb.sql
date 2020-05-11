@@ -18,3 +18,18 @@ CREATE TABLE `customers` (
   `married` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE `products` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `unit_price` double NOT NULL,
+  `stock` int NOT NULL,
+  `photo_url` varchar(250) DEFAULT NULL,
+  `description` varchar(300) NOT NULL DEFAULT '',
+  `discount` int NOT NULL DEFAULT '0',
+  `class_name` varchar(25) NOT NULL DEFAULT 'Product',
+  `category` varchar(10) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name_UNIQUE` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
